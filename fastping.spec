@@ -1,16 +1,12 @@
 # -*- mode: python ; coding: utf-8 -*-
-from PyInstaller.utils.hooks import collect_data_files
-
-datas = []
-datas += collect_data_files('customtkinter')
 
 
 a = Analysis(
     ['fastping.py'],
     pathex=[],
     binaries=[],
-    datas=datas,
-    hiddenimports=['pkg_resources.py2_warn', 'tkinter'],
+    datas=[],
+    hiddenimports=['PyQt5.QtWidgets', 'PyQt5.QtGui', 'PyQt5.QtCore'],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
