@@ -7,7 +7,7 @@ import os
 import webbrowser
 from PIL import Image
 # Set appearance and theme for customtkinter
-ctk.set_appearance_mode("light")
+ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 
 # Determine application path for IPS_FILE
