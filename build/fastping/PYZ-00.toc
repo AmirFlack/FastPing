@@ -194,6 +194,7 @@
    'PYMODULE'),
   ('quopri', 'C:\\Program Files\\Python312\\Lib\\quopri.py', 'PYMODULE'),
   ('random', 'C:\\Program Files\\Python312\\Lib\\random.py', 'PYMODULE'),
+  ('resources3', 'F:\\Projects\\fastping\\resources3.py', 'PYMODULE'),
   ('selectors', 'C:\\Program Files\\Python312\\Lib\\selectors.py', 'PYMODULE'),
   ('shlex', 'C:\\Program Files\\Python312\\Lib\\shlex.py', 'PYMODULE'),
   ('shutil', 'C:\\Program Files\\Python312\\Lib\\shutil.py', 'PYMODULE'),

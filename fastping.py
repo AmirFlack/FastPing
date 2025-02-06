@@ -3,13 +3,21 @@ import os
 import re
 import subprocess
 import webbrowser
-
+import resources3
 from PyQt5.QtCore import Qt, QSize, QThread, pyqtSignal, pyqtSlot
-from PyQt5.QtGui import QFont, QColor, QPalette
+from PyQt5.QtGui import QFont, QColor, QPalette, QIcon, QPixmap
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QPushButton,
                              QLabel, QHBoxLayout, QVBoxLayout, QScrollArea,
                              QLineEdit, QDialog)
 
+#####################################################
+from PyQt5.QtGui import QPixmap, QIcon
+from PyQt5.QtCore import QByteArray
+from PyQt5.QtCore import QBuffer
+
+
+
+##################################################
 # ---------------- Global Configuration and Utility Functions ---------------- #
 
 if getattr(sys, 'frozen', False):
@@ -194,9 +202,9 @@ class FastPingApp(QMainWindow):
         self.resize(380, 338)
         self.ips = load_ips()
         self.ping_rows = {}  # Map IP -> PingRow widget
-        
+        self.setWindowIcon(QIcon(":/icon2.ico"))
+        # self.setWindowIcon(QIcon("favico.ico"))
         self.theme = "dark"
-        
         central_widget = QWidget()
         self.main_layout = QVBoxLayout()
         central_widget.setLayout(self.main_layout)
@@ -308,7 +316,8 @@ class FastPingApp(QMainWindow):
             palette.setColor(QPalette.Text, QColor("white"))
             self.ip_container.setStyleSheet("background-color: #2b2b2b;")
             # Set the QLineEdit background to #38343c in dark mode
-            self.ip_entry.setStyleSheet("background-color: #38343c; color: white;")
+            self.ip_entry.setStyleSheet("background-color: #38343c; color: white; border: 1px solid #38343c;")
+
         else:
             palette.setColor(QPalette.Window, QColor("white"))
             palette.setColor(QPalette.WindowText, QColor("black"))
