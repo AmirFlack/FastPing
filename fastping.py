@@ -25,7 +25,7 @@ if getattr(sys, 'frozen', False):
 else:
     application_path = os.path.dirname(os.path.abspath(__file__))
 
-IPS_FILE = os.path.join(application_path, "ips.txt")
+IPS_FILE = os.path.join(application_path, "FastPing_ips.txt")
 DEFAULT_IPS = [
     "5.200.200.200",
     "8.8.8.8",
@@ -198,7 +198,7 @@ class PingRow(QWidget):
 class FastPingApp(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("FastPing-v1.1")
+        self.setWindowTitle("FastPing-v1.3")
         self.resize(380, 338)
         self.ips = load_ips()
         self.ping_rows = {}  # Map IP -> PingRow widget
@@ -232,8 +232,8 @@ class FastPingApp(QMainWindow):
         button_layout.addWidget(self.contact_button)
         
         self.info_button = CircularButton("!", size=btn_size,
-                                            bg_color="#9C27B0",
-                                            hover_color="#7B1FA2",
+                                            bg_color="#2196F3",
+                                            hover_color="#1976D2",
                                             pressed_color="#6A1B9A")
         self.info_button.clicked.connect(self.show_info)
         button_layout.addWidget(self.info_button)
@@ -251,15 +251,15 @@ class FastPingApp(QMainWindow):
         link_widget = QWidget()
         link_layout = QHBoxLayout()
         link_widget.setLayout(link_layout)
-        self.twitch_label = QLabel('<a style="color: #2196F3; text-decoration: none;" href="https://twitch.tv/your_channel">Twitch</a>')
-        self.twitch_label.setFont(QFont("Helvetica", 12, QFont.Bold))
+        self.twitch_label = QLabel('<a style="color: #2196F3; text-decoration: none;" href="https://twitch.tv/amirflack">Twitch</a>')
+        self.twitch_label.setFont(QFont("Helvetica", 11, QFont.Bold))
         self.twitch_label.setTextFormat(Qt.RichText)
         self.twitch_label.setTextInteractionFlags(Qt.TextBrowserInteraction)
         self.twitch_label.setOpenExternalLinks(True)
         link_layout.addWidget(self.twitch_label)
         
-        self.github_label = QLabel('<a style="color: #2196F3; text-decoration: none;" href="https://github.com/AmirHossein143/FastPing">GitHub</a>')
-        self.github_label.setFont(QFont("Helvetica", 12, QFont.Bold))
+        self.github_label = QLabel('<a style="color: #2196F3; text-decoration: none;" href="https://github.com/AmirFlack">GitHub</a>')
+        self.github_label.setFont(QFont("Helvetica", 11, QFont.Bold))
         self.github_label.setTextFormat(Qt.RichText)
         self.github_label.setTextInteractionFlags(Qt.TextBrowserInteraction)
         self.github_label.setOpenExternalLinks(True)
@@ -298,7 +298,7 @@ class FastPingApp(QMainWindow):
         add_layout.addWidget(add_button)
         self.main_layout.addWidget(add_widget)
         
-        self.credits_label = QLabel("credits: AmirHossein_pdr")
+        self.credits_label = QLabel("credits: AmirHossein_poudratchi")
         self.credits_label.setFont(QFont("Helvetica", 12))
         self.credits_label.setStyleSheet("color: #B3B3B3;")
         self.credits_label.setAlignment(Qt.AlignRight)
@@ -388,17 +388,17 @@ class FastPingApp(QMainWindow):
         
         twitch_btn = QPushButton("🎮 Twitch")
         twitch_btn.setStyleSheet(btn_style + "background-color:#9146FF; color:white;")
-        twitch_btn.clicked.connect(lambda: webbrowser.open("https://twitch.tv/your_channel"))
+        twitch_btn.clicked.connect(lambda: webbrowser.open("https://twitch.tv/amirflack"))
         layout.addWidget(twitch_btn)
         
         steam_btn = QPushButton("⚙️ Steam")
         steam_btn.setStyleSheet(btn_style + "background-color:#1B2838; color:white;")
-        steam_btn.clicked.connect(lambda: webbrowser.open("https://steamcommunity.com/id/your_profile"))
+        steam_btn.clicked.connect(lambda: webbrowser.open("https://steamcommunity.com/id/amir_pdr/"))
         layout.addWidget(steam_btn)
         
         website_btn = QPushButton("🌐 Website")
         website_btn.setStyleSheet(btn_style + "background-color:#4CAF50; color:white;")
-        website_btn.clicked.connect(lambda: webbrowser.open("https://your-website.com"))
+        website_btn.clicked.connect(lambda: webbrowser.open("https://amirflack.github.io/"))
         layout.addWidget(website_btn)
         
         dialog.exec_()
@@ -425,10 +425,12 @@ class FastPingApp(QMainWindow):
             "  • Toggle themes with 🌙/☀ button\n\n"
             "⚠️ Note:\n"
             "  • Timeouts show as 'Timeout' ⏳\n"
-            "  • Statistics update every 40 pings 📈"
+            "  • Statistics update every 40 pings 📈\n"
+            "📨 Hint:\n    If you have any suggestions or problems\n"
+            "    please let me know throw the channels"
         )
         info_label = QLabel(info_text)
-        info_label.setFont(QFont("Helvetica", 14))
+        info_label.setFont(QFont("Helvetica", 13))
         info_label.setAlignment(Qt.AlignLeft | Qt.AlignTop)
         info_label.setWordWrap(True)
         layout.addWidget(info_label)
