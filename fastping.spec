@@ -1,12 +1,16 @@
 # -*- mode: python ; coding: utf-8 -*-
+from PyInstaller.utils.hooks import collect_data_files
+
+datas = []
+datas += collect_data_files('customtkinter')
 
 
 a = Analysis(
-    ['fastping.py'],
+    ['fastping_tkinter.py'],
     pathex=[],
     binaries=[],
-    datas=[],
-    hiddenimports=['PyQt5.QtWidgets', 'PyQt5.QtGui', 'PyQt5.QtCore'],
+    datas=datas,
+    hiddenimports=['pkg_resources.py2_warn', 'tkinter'],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
@@ -35,5 +39,4 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['icon2.ico'],
 )
